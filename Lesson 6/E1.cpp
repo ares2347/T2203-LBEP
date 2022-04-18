@@ -6,18 +6,25 @@ int main() {
 	scanf("%d",&n);
 	}while(n<=0);
 	int a[n];
-	for (int i=0; i<n;i++){
-		printf("input number:");
+	int i=0;
+	for(int i=0; i<n;i++){
+		bool f=false;
+		printf("input number %d: ",i);
 		scanf("%d",&a[i]);
-		for(int j=i-1; j>=0; j--){
-			if(a[j]==a[i]){
-				printf("so %d bi trung, vui long nhap lai: ",a[i]);
-				scanf("%d",&a[i]);
+		for(int j=0;j<i;j++){
+			if(a[i]==a[j]){
+				f=true;
+				printf("so nay da ton tai\n");
+				break;
 			}
-		}	
+		}
+		if(f)
+			i--;
 	}
+
 	
 	for (int i=0; i<n; i++){
 		printf("%d\t", a[i]);
 	}
 }
+	
