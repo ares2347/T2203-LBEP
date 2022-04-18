@@ -17,37 +17,31 @@ int main(){
 	int f_Odd, l_Odd;
 	//find first odd number
 	for(int i=0;i<n;i++){
-		if(a[i]%2==1||a[i]%2==-1){
+		if(a[i]%2!=0){
 			f_Odd=i;
 			break;
 		}	
 	}
 	//find last odd number
 	for(int i=n-1;i>=0;i--){
-		if(a[i]%2==1||a[i]%2==-1){
+		if(a[i]%2!=0){
 			l_Odd=i;
 			break;
 		}	
 	}
 	//Odd loop:
-	for (int i=f_Odd;i<=l_Odd;i++){
-		int j=f_Odd;
-		while (j<l_Odd){
-		//find next odd:
-			int k;
-			for(k=j+1;k<=l_Odd;k++){
-				if (a[k]%2==1||a[k]%2==-1)
-					break;
+	for (int i=f_Odd;i<l_Odd;){
+		for (int j=i+1; j<=l_Odd;j++){
+			if (a[j]%2!=0){
+				if(a[i]>a[j]){
+					int tmp;
+					tmp=a[i];
+					a[i]=a[j];
+					a[j]=tmp;
+				}
+				i=j;
+				break;
 			}
-		//swap
-			if(a[j]>a[k]){
-				int temp;
-				temp=a[j];
-				a[j]=a[k];
-				a[k]=temp;
-			}
-		//loop operator
-			j=k;
 		}
 	}
 	for(int i=0;i<n;i++){
