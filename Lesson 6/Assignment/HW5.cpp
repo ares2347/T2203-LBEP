@@ -31,8 +31,10 @@ int main(){
 	}
 	//Odd loop:
 	for (int i=f_Odd;i<l_Odd;){
+		//find next Odd
 		for (int j=i+1; j<=l_Odd;j++){
 			if (a[j]%2!=0){
+				//swap
 				if(a[i]>a[j]){
 					int tmp;
 					tmp=a[i];
