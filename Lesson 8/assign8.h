@@ -1,3 +1,4 @@
+#include <math.h>
 //1.S=x^y
 int powVar(int x, int y){
 	int s=x;
@@ -34,11 +35,11 @@ int powVar(int x, int y){
 	 }
  }
 //3. UCLN cua tat ca cac phan tu trong mang
- //check min cua mang
-  int minArray(int arr[], int n){
- 	int min=arr[0];
+ //check min abs cua mang
+  int minAbsArray(int arr[], int n){
+ 	int min=abs(arr[0]);
  	for (int i=1;i<n;i++){
- 		if (min>arr[i]) min=arr[i];
+ 		if (min>abs(arr[i])) min=abs(arr[i]);
 	 }
 	 return min;
  }
@@ -46,7 +47,7 @@ int powVar(int x, int y){
 //UCLN cua mang
 int hcfArray (int arr[], int n){
 	//loop tu min de tim uoc
-	for (int i=minArray(arr,n); i>0; i--){
+	for (int i=minAbsArray(arr,n); i>0; i--){
 		bool f=true;
 		//loop mang de test uoc
 			for (int j=0;j<n;j++){
@@ -63,10 +64,18 @@ int hcfArray (int arr[], int n){
 
 
 //4.BCNN cua tat ca cac phan tu trong mang
+//check max abs cua mang 
+ int maxAbsArray(int arr[], int n){
+ 	int max=abs(arr[0]);
+ 	for (int i=1;i<n;i++){
+ 		if (max<abs(arr[i])) max=abs(arr[i]);
+	 }
+	 return max;
+ }
 //BCNN cua mang
 int lcmArray (int arr[], int n){
 	//loop tu max de tim boi
-	for (int i=maxArray(arr,n); ; i++){
+	for (int i=maxAbsArray(arr,n); ; i++){
 		bool f=true;
 		//loop mang de test boi
 			for (int j=0;j<n;j++){
