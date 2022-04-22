@@ -29,7 +29,7 @@ int powVar(int x, int y){
  }
  //tim so nguyen to nho nhat lon hon gia tri trong mang
  int minPrime(int arr[], int n){
- 	for (int i=maxArray(arr,n); ;i++){
+ 	for (int i=maxArray(arr,n)+1; ;i++){
  		if (checkPrime(i)) return i;
 	 }
  }
